@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
-import { OpenAiService } from './services/open-ai/open-ai.service';
 import { SpeechService } from './services/speech/speech.service';
 
 @Component({
@@ -12,7 +11,6 @@ import { SpeechService } from './services/speech/speech.service';
 export class AppComponent {
 
   private speechService = inject(SpeechService);
-  private openAiService = inject(OpenAiService);
   public messages = this.speechService.Messages;
   public isListening = this.speechService.IsListening;
 
@@ -20,7 +18,8 @@ export class AppComponent {
 
   constructor(private renderer: Renderer2) {
     effect(() => {
-      console.log('Messages updated:', this.messages());
+      // Track messages value for reactivity
+      this.messages();
       setTimeout(() => {
         this.scrollToBottom();
       }, 0);
