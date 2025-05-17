@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #f7f8fa;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+#root,
+app-root,
+.chat-root {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: visible;
+}
